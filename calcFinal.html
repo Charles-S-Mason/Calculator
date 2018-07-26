@@ -1,0 +1,156 @@
+<title>calculator.net--Welcome</title>
+<body style="background-color:blue;">
+<center>
+    <h1>WELCOME TO CALCULATOR.NET!!!!</h1>
+<div>
+<div style="background-color:rgb(0, 255, 21);width:7%; overflow:hidden;height:22px;"><font  id="input"></font></div>
+
+<button id="7">7</button>
+<button id="8">8</button> 
+<button id="9">9</button>
+<br>
+<button id="4">4</button>
+<button id="5">5</button>
+<button id="6">6</button>
+<br>
+<button id="1">1</button>
+<button id="2">2</button>
+<button id="3">3</button>
+<br>
+<button id="0">0</button>
+<button id="+">+</button>
+<button id="-">-</button>
+<br>
+<button id="*">*</button>
+<button id="/">/</button>
+<button id="=">=</button>
+<br>
+<button id="clear">Clear</button>
+<button id="backspace"><--</button>
+
+
+</div>
+<h3>Refresh to clear the calculator if Clear dosen't work</h3>
+</center>
+</body>
+<script>
+
+    let result
+
+document.getElementById("7").addEventListener("click",f7)
+function f7 (){
+    console.log("7")
+    document.getElementById("input").innerText+=7
+}
+
+document.getElementById("8").addEventListener("click",f8)
+function f8 (){
+    document.getElementById("input").innerText+=8
+}
+
+document.getElementById("9").addEventListener("click",f9)
+function f9 (){
+    document.getElementById("input").innerText+=9
+}
+
+document.getElementById("4").addEventListener("click",f4)
+function f4 (){
+    document.getElementById("input").innerText+=4
+}
+
+document.getElementById("5").addEventListener("click",f5)
+function f5 (){
+    document.getElementById("input").innerText+=5
+}
+
+document.getElementById("6").addEventListener("click",f6)
+function f6 (){
+    document.getElementById("input").innerText+=6
+}
+
+document.getElementById("1").addEventListener("click",f1)
+function f1 (){
+    document.getElementById("input").innerText+=1
+}
+
+document.getElementById("2").addEventListener("click",f2)
+function f2 (){
+    document.getElementById("input").innerText+=2
+}
+
+document.getElementById("3").addEventListener("click",f3)
+function f3 (){
+    document.getElementById("input").innerText+=3
+}
+document.getElementById("0").addEventListener("click",f0)
+function f0 (){
+    document.getElementById("input").innerText+=0
+}
+
+document.getElementById("+").addEventListener("click",fp)
+function fp(){
+    document.getElementById("input").innerText+="+"
+}
+
+document.getElementById("-").addEventListener("click",fm)
+function fm(){
+    document.getElementById("input").innerText+="-"
+}
+
+document.getElementById("/").addEventListener("click",fd)
+function fd(){
+    document.getElementById("input").innerText+="/"
+}
+
+document.getElementById("*").addEventListener("click",fmp)
+function fmp(){
+    document.getElementById("input").innerText+="*"
+}
+
+document.getElementById("=").addEventListener("click",fe)
+function fe(){
+    let input = document.getElementById("input").innerText
+    
+    if(input.includes("+")){
+    let var1 = input.substring(0,input.indexOf("+")) 
+    console.log(var1)
+    let var2 = input.substring(input.indexOf("+")+1,input.length)
+    console.log(var2)
+    result=parseFloat(var1)+parseFloat(var2)
+    }
+    else if(input.includes("*")){
+    let var1 = input.substring(0,input.indexOf("*")) 
+    console.log(var1)
+    let var2 = input.substring(input.indexOf("*")+1,input.length)
+    console.log(var2)
+    result=parseFloat(var1)*parseFloat(var2)
+    }
+    else if(input.includes("/")){
+        let var1 = input.substring(0,input.indexOf("/")) 
+    console.log(var1)
+    let var2 = input.substring(input.indexOf("/")+1,input.length)
+    console.log(var2)
+    result=parseFloat(var1)/(var2)
+    }
+    else if(input.includes("-")){
+        let var1 = input.substring(0,input.indexOf("-")) 
+    console.log(var1)
+    let var2 = input.substring(input.indexOf("-")+1,input.length)
+    console.log(var2)
+    result=parseFloat(var1)-parseFloat(var2)
+    }
+    document.getElementById("input").innerText=result
+}
+
+document.getElementById("backspace").addEventListener("click",fb)
+function fb(){
+    
+    let input=document.getElementById("input").innerText 
+    let result=input.substring(0,input.length-1)
+    document.getElementById("input").innerText=result
+}
+document.getElementById("clear").addEventListener("click",fc)
+function fc(){
+    document.getElementById("input").innerText=""
+}
+</script>
